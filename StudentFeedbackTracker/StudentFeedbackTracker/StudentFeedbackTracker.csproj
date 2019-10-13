@@ -48,8 +48,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,10 +78,67 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCourse.Designer.cs">
+      <DependentUpon>frmCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCourseList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCourseList.Designer.cs">
+      <DependentUpon>frmCourseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSubject.Designer.cs">
+      <DependentUpon>frmSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSubjectList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSubjectList.Designer.cs">
+      <DependentUpon>frmSubjectList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentFeedbackTrackerModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentFeedbackTrackerModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentFeedbackTrackerModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentFeedbackTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentFeedbackTrackerModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentFeedbackTrackerModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="tblCourse.cs">
+      <DependentUpon>StudentFeedbackTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSubject.cs">
+      <DependentUpon>StudentFeedbackTrackerModel.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCourse.resx">
+      <DependentUpon>frmCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCourseList.resx">
+      <DependentUpon>frmCourseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSubject.resx">
+      <DependentUpon>frmSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSubjectList.resx">
+      <DependentUpon>frmSubjectList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,6 +149,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,6 +159,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EntityDeploy Include="StudentFeedbackTrackerModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StudentFeedbackTrackerModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="StudentFeedbackTrackerModel.edmx.diagram">
+      <DependentUpon>StudentFeedbackTrackerModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -98,6 +174,16 @@
     <Content Include="BackupSQLqeries.txt" />
     <Content Include="StudentFeedbackTracker.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="StudentFeedbackTrackerModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StudentFeedbackTrackerModel.edmx</DependentUpon>
+      <LastGenOutput>StudentFeedbackTrackerModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="StudentFeedbackTrackerModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StudentFeedbackTrackerModel.edmx</DependentUpon>
+      <LastGenOutput>StudentFeedbackTrackerModel.cs</LastGenOutput>
     </Content>
     <Content Include="StudentFeedbackTracker_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -115,6 +201,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
