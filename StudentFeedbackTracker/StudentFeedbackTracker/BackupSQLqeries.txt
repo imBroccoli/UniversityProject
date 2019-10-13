@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[tblCourse]
+(
+	[Id] INT NOT NULL IDENTITY PRIMARY KEY, 
+    [cName] VARCHAR(50) NULL
+)
+GO
+
+
+CREATE TABLE [dbo].[tblSubject]
+(
+	[Id] INT NOT NULL IDENTITY PRIMARY KEY, 
+    [sName] VARCHAR(50) NULL, 
+    [cId] INT NULL, 
+    CONSTRAINT [FK_Table_ToTable] FOREIGN KEY ([cId]) REFERENCES [tblCourse]([Id])
+)
+GO

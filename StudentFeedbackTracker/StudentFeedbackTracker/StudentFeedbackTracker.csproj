@@ -95,6 +95,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BackupSQLqeries.txt" />
     <Content Include="StudentFeedbackTracker.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
