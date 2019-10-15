@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtCName = new System.Windows.Forms.TextBox();
             this.btnInsert = new System.Windows.Forms.Button();
+            this.txtCName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lnkNavigationPanel = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,6 +41,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.lnkNavigationPanel);
             this.groupBox1.Controls.Add(this.btnInsert);
             this.groupBox1.Controls.Add(this.txtCName);
             this.groupBox1.Controls.Add(this.label1);
@@ -51,6 +53,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Information";
             // 
+            // btnInsert
+            // 
+            this.btnInsert.Location = new System.Drawing.Point(32, 124);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(119, 38);
+            this.btnInsert.TabIndex = 2;
+            this.btnInsert.Text = "Insert";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            // 
+            // txtCName
+            // 
+            this.txtCName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCName.Location = new System.Drawing.Point(177, 51);
+            this.txtCName.Name = "txtCName";
+            this.txtCName.Size = new System.Drawing.Size(300, 30);
+            this.txtCName.TabIndex = 1;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -60,23 +81,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Course Name:";
             // 
-            // txtCName
+            // lnkNavigationPanel
             // 
-            this.txtCName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCName.Location = new System.Drawing.Point(177, 51);
-            this.txtCName.Name = "txtCName";
-            this.txtCName.Size = new System.Drawing.Size(300, 30);
-            this.txtCName.TabIndex = 1;
-            // 
-            // btnInsert
-            // 
-            this.btnInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnInsert.Location = new System.Drawing.Point(32, 133);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(119, 38);
-            this.btnInsert.TabIndex = 2;
-            this.btnInsert.Text = "Insert";
-            this.btnInsert.UseVisualStyleBackColor = true;
+            this.lnkNavigationPanel.AutoSize = true;
+            this.lnkNavigationPanel.Location = new System.Drawing.Point(32, 185);
+            this.lnkNavigationPanel.Name = "lnkNavigationPanel";
+            this.lnkNavigationPanel.Size = new System.Drawing.Size(146, 22);
+            this.lnkNavigationPanel.TabIndex = 3;
+            this.lnkNavigationPanel.TabStop = true;
+            this.lnkNavigationPanel.Text = "Navigation Panel";
+            this.lnkNavigationPanel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkNavigationPanel_LinkClicked);
             // 
             // frmCourse
             // 
@@ -98,5 +112,6 @@
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.TextBox txtCName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel lnkNavigationPanel;
     }
 }

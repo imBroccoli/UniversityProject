@@ -72,11 +72,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmNavigation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmNavigation.Designer.cs">
+      <DependentUpon>frmNavigation.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCourse.cs">
       <SubType>Form</SubType>
@@ -125,8 +125,8 @@
     <Compile Include="tblSubject.cs">
       <DependentUpon>StudentFeedbackTrackerModel.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="frmNavigation.resx">
+      <DependentUpon>frmNavigation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCourse.resx">
       <DependentUpon>frmCourse.cs</DependentUpon>
@@ -173,7 +173,7 @@
   <ItemGroup>
     <Content Include="BackupSQLqeries.txt" />
     <Content Include="StudentFeedbackTracker.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="StudentFeedbackTrackerModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -186,7 +186,7 @@
       <LastGenOutput>StudentFeedbackTrackerModel.cs</LastGenOutput>
     </Content>
     <Content Include="StudentFeedbackTracker_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>StudentFeedbackTracker.mdf</DependentUpon>
     </Content>
   </ItemGroup>

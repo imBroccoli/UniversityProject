@@ -16,5 +16,17 @@ namespace StudentFeedbackTracker
         {
             InitializeComponent();
         }
+
+        private void frmSubjectList_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNavigationPanel_Click(object sender, EventArgs e)
+        {
+            frmNavigation frmNav = new frmNavigation();
+            frmNav.Show();
+            this.Hide();
+        }
     }
 }

@@ -12,9 +12,29 @@ namespace StudentFeedbackTracker
 {
     public partial class frmCourse : Form
     {
+        StudentFeedbackTrackerEntities db = new StudentFeedbackTrackerEntities();
         public frmCourse()
         {
             InitializeComponent();
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            tblCourse course = new tblCourse();
+
+            course.cName = txtCName.Text;
+
+            db.tblCourses.Add(course);
+            db.SaveChanges();
+
+            MessageBox.Show("New Course Added Successfully");
+        }
+
+        private void lnkNavigationPanel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmNavigation frmNav = new frmNavigation();
+            frmNav.Show();
+            this.Hide();
         }
     }
 }

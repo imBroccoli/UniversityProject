@@ -12,9 +12,32 @@ namespace StudentFeedbackTracker
 {
     public partial class frmCourseList : Form
     {
+        StudentFeedbackTrackerEntities db = new StudentFeedbackTrackerEntities();
         public frmCourseList()
         {
             InitializeComponent();
+        }
+
+        private void frmCourseList_Load(object sender, EventArgs e)
+        {
+            getAllCourses();
+        }
+
+        public void getAllCourses()
+        {
+            var data = db.tblCourses.Select(x => new { CoourseID = x.Id, CourseName = x.cName }).ToList();
+
+            if (data != null)
+            {
+                gvCourse.DataSource = data;
+            }
+        }
+
+        private void btnNavigationPanel_Click(object sender, EventArgs e)
+        {
+            frmNavigation frmNav = new frmNavigation();
+            frmNav.Show();
+            this.Hide();
         }
     }
 }
