@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lnkNavigationPanel = new System.Windows.Forms.LinkLabel();
             this.btnInsert = new System.Windows.Forms.Button();
             this.cboCourseName = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lnkNavigationPanel = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Subject Information";
+            // 
+            // lnkNavigationPanel
+            // 
+            this.lnkNavigationPanel.AutoSize = true;
+            this.lnkNavigationPanel.Location = new System.Drawing.Point(32, 284);
+            this.lnkNavigationPanel.Name = "lnkNavigationPanel";
+            this.lnkNavigationPanel.Size = new System.Drawing.Size(146, 22);
+            this.lnkNavigationPanel.TabIndex = 5;
+            this.lnkNavigationPanel.TabStop = true;
+            this.lnkNavigationPanel.Text = "Navigation Panel";
+            this.lnkNavigationPanel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkNavigationPanel_LinkClicked);
             // 
             // btnInsert
             // 
@@ -105,25 +116,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Subject Name:";
             // 
-            // lnkNavigationPanel
-            // 
-            this.lnkNavigationPanel.AutoSize = true;
-            this.lnkNavigationPanel.Location = new System.Drawing.Point(32, 284);
-            this.lnkNavigationPanel.Name = "lnkNavigationPanel";
-            this.lnkNavigationPanel.Size = new System.Drawing.Size(146, 22);
-            this.lnkNavigationPanel.TabIndex = 5;
-            this.lnkNavigationPanel.TabStop = true;
-            this.lnkNavigationPanel.Text = "Navigation Panel";
-            this.lnkNavigationPanel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkNavigationPanel_LinkClicked);
-            // 
             // frmSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 355);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmSubject";
             this.Text = "frmSubject";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSubject_FormClosed);
             this.Load += new System.EventHandler(this.frmSubject_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

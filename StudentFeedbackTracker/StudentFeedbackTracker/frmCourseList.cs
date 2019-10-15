@@ -25,15 +25,15 @@ namespace StudentFeedbackTracker
 
         public void getAllCourses()
         {
-            var data = db.tblCourses.Select(x => new { CoourseID = x.Id, CourseName = x.cName }).ToList();
+            var courseData = db.tblCourses.Select(x => new { CoourseID = x.Id, CourseName = x.cName }).ToList();
 
-            if (data != null)
+            if (courseData != null)
             {
-                gvCourse.DataSource = data;
+                gvCourse.DataSource = courseData;
             }
         }
 
-        private void btnNavigationPanel_Click(object sender, EventArgs e)
+        private void frmCourseList_FormClosed(object sender, FormClosedEventArgs e)
         {
             frmNavigation frmNav = new frmNavigation();
             frmNav.Show();

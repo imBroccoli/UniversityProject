@@ -21,13 +21,10 @@ namespace StudentFeedbackTracker
         private void btnInsert_Click(object sender, EventArgs e)
         {
             tblCourse course = new tblCourse();
-
             course.cName = txtCName.Text;
-
             db.tblCourses.Add(course);
             db.SaveChanges();
-
-            MessageBox.Show("New Course Added Successfully");
+            MessageBox.Show("New Course Added Successfully", "Save Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void lnkNavigationPanel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -35,6 +32,11 @@ namespace StudentFeedbackTracker
             frmNavigation frmNav = new frmNavigation();
             frmNav.Show();
             this.Hide();
+        }
+
+        private void frmCourse_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

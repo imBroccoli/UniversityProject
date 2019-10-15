@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lnkNavigationPanel = new System.Windows.Forms.LinkLabel();
             this.btnInsert = new System.Windows.Forms.Button();
             this.txtCName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lnkNavigationPanel = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Information";
             // 
+            // lnkNavigationPanel
+            // 
+            this.lnkNavigationPanel.AutoSize = true;
+            this.lnkNavigationPanel.Location = new System.Drawing.Point(32, 185);
+            this.lnkNavigationPanel.Name = "lnkNavigationPanel";
+            this.lnkNavigationPanel.Size = new System.Drawing.Size(146, 22);
+            this.lnkNavigationPanel.TabIndex = 3;
+            this.lnkNavigationPanel.TabStop = true;
+            this.lnkNavigationPanel.Text = "Navigation Panel";
+            this.lnkNavigationPanel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkNavigationPanel_LinkClicked);
+            // 
             // btnInsert
             // 
             this.btnInsert.Location = new System.Drawing.Point(32, 124);
@@ -65,8 +76,7 @@
             // 
             // txtCName
             // 
-            this.txtCName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCName.Location = new System.Drawing.Point(177, 51);
             this.txtCName.Name = "txtCName";
             this.txtCName.Size = new System.Drawing.Size(300, 30);
@@ -81,25 +91,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Course Name:";
             // 
-            // lnkNavigationPanel
-            // 
-            this.lnkNavigationPanel.AutoSize = true;
-            this.lnkNavigationPanel.Location = new System.Drawing.Point(32, 185);
-            this.lnkNavigationPanel.Name = "lnkNavigationPanel";
-            this.lnkNavigationPanel.Size = new System.Drawing.Size(146, 22);
-            this.lnkNavigationPanel.TabIndex = 3;
-            this.lnkNavigationPanel.TabStop = true;
-            this.lnkNavigationPanel.Text = "Navigation Panel";
-            this.lnkNavigationPanel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkNavigationPanel_LinkClicked);
-            // 
             // frmCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(539, 249);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmCourse";
             this.Text = "frmCourse";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCourse_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

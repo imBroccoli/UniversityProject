@@ -35,5 +35,24 @@ namespace StudentFeedbackTracker
             frmCSList.Show();
             this.Hide();
         }
+
+        private void subjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSubject frmSub = new frmSubject();
+            frmSub.Show();
+            this.Hide();
+        }
+
+        private void allSubjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSubjectList frmSubLst = new frmSubjectList();
+            frmSubLst.Show();
+            this.Hide();
+        }
+
+        private void frmNavigation_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -74,6 +74,7 @@
             this.subjectToolStripMenuItem.Name = "subjectToolStripMenuItem";
             this.subjectToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.subjectToolStripMenuItem.Text = "Subject";
+            this.subjectToolStripMenuItem.Click += new System.EventHandler(this.subjectToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -98,7 +99,7 @@
             // allCourseToolStripMenuItem
             // 
             this.allCourseToolStripMenuItem.Name = "allCourseToolStripMenuItem";
-            this.allCourseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allCourseToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.allCourseToolStripMenuItem.Text = "All Course";
             this.allCourseToolStripMenuItem.Click += new System.EventHandler(this.allCourseToolStripMenuItem_Click);
             // 
@@ -107,6 +108,7 @@
             this.allSubjectToolStripMenuItem.Name = "allSubjectToolStripMenuItem";
             this.allSubjectToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.allSubjectToolStripMenuItem.Text = "All Subject";
+            this.allSubjectToolStripMenuItem.Click += new System.EventHandler(this.allSubjectToolStripMenuItem_Click);
             // 
             // frmNavigation
             // 
@@ -117,6 +119,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmNavigation";
             this.Text = "Navigation";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmNavigation_FormClosed);
             this.Load += new System.EventHandler(this.frmNavigation_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
