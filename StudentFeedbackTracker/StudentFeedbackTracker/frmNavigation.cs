@@ -19,7 +19,11 @@ namespace StudentFeedbackTracker
 
         private void frmNavigation_Load(object sender, EventArgs e)
         {
-
+            if (Tools.UsrType != "Admin")
+            {
+                courseToolStripMenuItem.Visible = false;
+                subjectToolStripMenuItem.Visible = false;
+            }
         }
 
         private void courseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,6 +57,13 @@ namespace StudentFeedbackTracker
         private void frmNavigation_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmLogin frmLog = new frmLogin();
+            frmLog.Show();
         }
     }
 }

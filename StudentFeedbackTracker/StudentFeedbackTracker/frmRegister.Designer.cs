@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtUserName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.d = new System.Windows.Forms.Label();
-            this.txtUserpass = new System.Windows.Forms.TextBox();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.dtDOB = new System.Windows.Forms.DateTimePicker();
-            this.btnInsert = new System.Windows.Forms.Button();
             this.cboUserType = new System.Windows.Forms.ComboBox();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.dtDOB = new System.Windows.Forms.DateTimePicker();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.txtUserpass = new System.Windows.Forms.TextBox();
+            this.d = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,110 +72,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Registration";
             // 
-            // label1
+            // cboUserType
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Username:";
-            // 
-            // txtUserName
-            // 
-            this.txtUserName.Location = new System.Drawing.Point(147, 34);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(293, 30);
-            this.txtUserName.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 22);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Password:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 122);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 22);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "First Name:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 164);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 22);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Last Name:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(66, 204);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 22);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "DOB:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 247);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 22);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "User Type:";
-            // 
-            // d
-            // 
-            this.d.AutoSize = true;
-            this.d.Location = new System.Drawing.Point(57, 290);
-            this.d.Name = "d";
-            this.d.Size = new System.Drawing.Size(61, 22);
-            this.d.TabIndex = 7;
-            this.d.Text = "Email:";
-            // 
-            // txtUserpass
-            // 
-            this.txtUserpass.Location = new System.Drawing.Point(147, 77);
-            this.txtUserpass.Name = "txtUserpass";
-            this.txtUserpass.Size = new System.Drawing.Size(293, 30);
-            this.txtUserpass.TabIndex = 8;
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Location = new System.Drawing.Point(147, 119);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(293, 30);
-            this.txtFirstName.TabIndex = 9;
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Location = new System.Drawing.Point(147, 161);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(293, 30);
-            this.txtLastName.TabIndex = 10;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(147, 287);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(293, 30);
-            this.txtEmail.TabIndex = 13;
-            // 
-            // dtDOB
-            // 
-            this.dtDOB.Location = new System.Drawing.Point(147, 198);
-            this.dtDOB.Name = "dtDOB";
-            this.dtDOB.Size = new System.Drawing.Size(293, 30);
-            this.dtDOB.TabIndex = 14;
+            this.cboUserType.FormattingEnabled = true;
+            this.cboUserType.Location = new System.Drawing.Point(147, 244);
+            this.cboUserType.Name = "cboUserType";
+            this.cboUserType.Size = new System.Drawing.Size(293, 30);
+            this.cboUserType.TabIndex = 16;
             // 
             // btnInsert
             // 
@@ -187,13 +90,110 @@
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // cboUserType
+            // dtDOB
             // 
-            this.cboUserType.FormattingEnabled = true;
-            this.cboUserType.Location = new System.Drawing.Point(147, 244);
-            this.cboUserType.Name = "cboUserType";
-            this.cboUserType.Size = new System.Drawing.Size(293, 30);
-            this.cboUserType.TabIndex = 16;
+            this.dtDOB.Location = new System.Drawing.Point(147, 198);
+            this.dtDOB.Name = "dtDOB";
+            this.dtDOB.Size = new System.Drawing.Size(293, 30);
+            this.dtDOB.TabIndex = 14;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(147, 287);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(293, 30);
+            this.txtEmail.TabIndex = 13;
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Location = new System.Drawing.Point(147, 161);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(293, 30);
+            this.txtLastName.TabIndex = 10;
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Location = new System.Drawing.Point(147, 119);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(293, 30);
+            this.txtFirstName.TabIndex = 9;
+            // 
+            // txtUserpass
+            // 
+            this.txtUserpass.Location = new System.Drawing.Point(147, 77);
+            this.txtUserpass.Name = "txtUserpass";
+            this.txtUserpass.Size = new System.Drawing.Size(293, 30);
+            this.txtUserpass.TabIndex = 8;
+            // 
+            // d
+            // 
+            this.d.AutoSize = true;
+            this.d.Location = new System.Drawing.Point(57, 290);
+            this.d.Name = "d";
+            this.d.Size = new System.Drawing.Size(61, 22);
+            this.d.TabIndex = 7;
+            this.d.Text = "Email:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(21, 247);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 22);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "User Type:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(66, 204);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 22);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "DOB:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 164);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 22);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Last Name:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 122);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 22);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "First Name:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 80);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 22);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Password:";
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Location = new System.Drawing.Point(147, 34);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(293, 30);
+            this.txtUserName.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 22);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Username:";
             // 
             // frmRegister
             // 
@@ -203,6 +203,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmRegister";
             this.Text = "frmRegister";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmRegister_FormClosed);
             this.Load += new System.EventHandler(this.frmRegister_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -32,12 +32,14 @@ namespace StudentFeedbackTracker
             usr.FirstName = txtFirstName.Text;
             usr.LastName = txtLastName.Text;
             usr.DOB = dtDOB.Value;
-            usr.UsrTypeId = int.Parse(cboUserType.ValueMember.ToString());
+            usr.UsrTypeId = int.Parse(cboUserType.SelectedValue.ToString());
             usr.Email = txtEmail.Text;
             usr.startDate = DateTime.Now;
 
             db.tblUsers.Add(usr);
             db.SaveChanges();
+
+            MessageBox.Show("New User Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void LoadUserType()
@@ -54,6 +56,11 @@ namespace StudentFeedbackTracker
 
         }
 
-        
+        private void frmRegister_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmLogin frmLog = new frmLogin();
+            frmLog.Show();
+            this.Hide();
+        }
     }
 }
