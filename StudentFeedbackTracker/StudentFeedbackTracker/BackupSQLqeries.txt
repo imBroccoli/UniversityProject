@@ -14,3 +14,33 @@ CREATE TABLE [dbo].[tblSubject]
     CONSTRAINT [FK_Table_ToTable] FOREIGN KEY ([cId]) REFERENCES [tblCourse]([Id])
 )
 GO
+
+CREATE TABLE [dbo].[tblUsrType]
+(
+	[Id] INT NOT NULL IDENTITY PRIMARY KEY, 
+    [UsrTypeName] VARCHAR(50) NULL
+)
+GO
+
+CREATE TABLE [dbo].[tblUser]
+(
+	[Id] INT NOT NULL IDENTITY (1,1) PRIMARY KEY, 
+    [UsrName] VARCHAR(50) NULL, 
+    [UsrPass] VARCHAR(50) NULL, 
+    [FirstName] VARCHAR(50) NULL,
+	[LastName] VARCHAR(50) NULL,
+    [DOB] DATE NULL, 
+    [UsrTypeId] INT NULL, 
+    [Email] VARCHAR(50) UNIQUE NULL, 
+    [startDate] DATE NULL, 
+    CONSTRAINT [FK_tblUser_ToTable] FOREIGN KEY ([UsrTypeId]) REFERENCES [tblUsrType]([Id])
+)
+GO
+
+INSERT INTO tblUsrType VALUES ('Admin')
+INSERT INTO tblUsrType VALUES ('Student')
+INSERT INTO tblUsrType VALUES ('Staff')
+
+INSERT INTO tblUser VALUES ('Romie', '123', 'Mustafirur', 'Rahman', '1960/04/06', 1, 'mr_romyee@daffodil.ac', GETDATE());
+INSERT INTO tblUser VALUES ('LawrenceCaesar', '123', 'Lawrence', 'Caesar', '1995/02/02', 2, '1000127@daffodil.ac', GETDATE());
+

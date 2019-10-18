@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="StudentFeedbackTrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="StudentFeedbackTrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblCourse">
           <Key>
             <PropertyRef Name="Id" />
@@ -20,6 +20,27 @@
           <Property Name="sName" Type="varchar" MaxLength="50" />
           <Property Name="cId" Type="int" />
         </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsrName" Type="varchar" MaxLength="50" />
+          <Property Name="UsrPass" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="UsrTypeId" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="startDate" Type="date" />
+        </EntityType>
+        <EntityType Name="tblUsrType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsrTypeName" Type="varchar" MaxLength="50" />
+        </EntityType>
         <Association Name="FK_Table_ToTable">
           <End Role="tblCourse" Type="Self.tblCourse" Multiplicity="0..1" />
           <End Role="tblSubject" Type="Self.tblSubject" Multiplicity="*" />
@@ -32,16 +53,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tblUser_ToTable">
+          <End Role="tblUsrType" Type="Self.tblUsrType" Multiplicity="0..1" />
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsrType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="UsrTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="StudentFeedbackTrackerModelStoreContainer">
           <EntitySet Name="tblCourse" EntityType="Self.tblCourse" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSubject" EntityType="Self.tblSubject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUsrType" EntityType="Self.tblUsrType" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
             <End Role="tblCourse" EntitySet="tblCourse" />
             <End Role="tblSubject" EntitySet="tblSubject" />
           </AssociationSet>
+          <AssociationSet Name="FK_tblUser_ToTable" Association="Self.FK_tblUser_ToTable">
+            <End Role="tblUsrType" EntitySet="tblUsrType" />
+            <End Role="tblUser" EntitySet="tblUser" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="StudentFeedbackTrackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -81,7 +119,48 @@
             <End Role="tblCourse" EntitySet="tblCourses" />
             <End Role="tblSubject" EntitySet="tblSubjects" />
           </AssociationSet>
+          <EntitySet Name="tblUsers" EntityType="StudentFeedbackTrackerModel.tblUser" />
+          <EntitySet Name="tblUsrTypes" EntityType="StudentFeedbackTrackerModel.tblUsrType" />
+          <AssociationSet Name="FK_tblUser_ToTable" Association="StudentFeedbackTrackerModel.FK_tblUser_ToTable">
+            <End Role="tblUsrType" EntitySet="tblUsrTypes" />
+            <End Role="tblUser" EntitySet="tblUsers" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsrName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UsrPass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="UsrTypeId" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="startDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tblUsrType" Relationship="StudentFeedbackTrackerModel.FK_tblUser_ToTable" FromRole="tblUser" ToRole="tblUsrType" />
+        </EntityType>
+        <EntityType Name="tblUsrType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsrTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblUsers" Relationship="StudentFeedbackTrackerModel.FK_tblUser_ToTable" FromRole="tblUsrType" ToRole="tblUser" />
+        </EntityType>
+        <Association Name="FK_tblUser_ToTable">
+          <End Type="StudentFeedbackTrackerModel.tblUsrType" Role="tblUsrType" Multiplicity="0..1" />
+          <End Type="StudentFeedbackTrackerModel.tblUser" Role="tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsrType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="UsrTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -102,6 +181,29 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="sName" ColumnName="sName" />
                 <ScalarProperty Name="cId" ColumnName="cId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="StudentFeedbackTrackerModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UsrTypeId" ColumnName="UsrTypeId" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UsrPass" ColumnName="UsrPass" />
+                <ScalarProperty Name="UsrName" ColumnName="UsrName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsrTypes">
+            <EntityTypeMapping TypeName="StudentFeedbackTrackerModel.tblUsrType">
+              <MappingFragment StoreEntitySet="tblUsrType">
+                <ScalarProperty Name="UsrTypeName" ColumnName="UsrTypeName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -8,6 +8,9 @@
         <EntityTypeShape EntityType="StudentFeedbackTrackerModel.tblCourse" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="StudentFeedbackTrackerModel.tblSubject" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="StudentFeedbackTrackerModel.FK_Table_ToTable" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="StudentFeedbackTrackerModel.tblUser" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="StudentFeedbackTrackerModel.tblUsrType" Width="1.5" PointX="0.75" PointY="4.625" />
+        <AssociationConnector Association="StudentFeedbackTrackerModel.FK_tblUser_ToTable" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

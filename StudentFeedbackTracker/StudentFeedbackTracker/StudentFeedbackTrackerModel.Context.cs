@@ -27,5 +27,7 @@ namespace StudentFeedbackTracker
     
         public virtual DbSet<tblCourse> tblCourses { get; set; }
         public virtual DbSet<tblSubject> tblSubjects { get; set; }
+        public virtual DbSet<tblUser> tblUsers { get; set; }
+        public virtual DbSet<tblUsrType> tblUsrTypes { get; set; }
     }
 }
