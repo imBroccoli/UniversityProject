@@ -1,0 +1,163 @@
+﻿CREATE TABLE [dbo].[tblCourse]
+(
+	[Id] INT NOT NULL IDENTITY (1, 1) PRIMARY KEY, 
+    [CourseName] VARCHAR(50) NULL
+)
+GO
+
+CREATE TABLE [dbo].[tblSubject]
+(
+	[Id] INT NOT NULL IDENTITY (1, 1) PRIMARY KEY, 
+    [SubjectName] VARCHAR(50) NULL, 
+    [cId] INT NULL, 
+    CONSTRAINT [FK_Table_ToTable] FOREIGN KEY ([cId]) REFERENCES [tblCourse]([Id])
+)
+GO
+
+CREATE TABLE [dbo].[tblUserType] (
+    [Id]    INT          IDENTITY (1, 1) NOT NULL PRIMARY KEY,
+    [UserTypeName] VARCHAR (50) NULL,
+)
+GO
+
+
+CREATE TABLE [dbo].[tblUser] (
+    [Id]     INT          IDENTITY (1, 1) NOT NULL PRIMARY KEY,
+    [UserName]  VARCHAR (50) NULL,
+    [UserPass]  VARCHAR (50) NULL,
+    [UTypeId] INT          NULL,
+    CONSTRAINT [FK_tblUser_ToTable] FOREIGN KEY ([UTypeId]) REFERENCES [dbo].[tblUserType] ([Id])
+)
+GO
+
+CREATE TABLE [dbo].[tblStaff] (
+    [Id]      INT          IDENTITY (1, 1) NOT NULL PRIMARY KEY,
+    [FirstName]   VARCHAR (50) NULL,
+	[LastName]   VARCHAR (50) NULL,
+    [Address] VARCHAR (50) NULL,
+    [DOB]     DATE         NULL,
+    [Email]   VARCHAR (50) NULL UNIQUE,
+    [Salary]  MONEY        NULL,
+    [UserId]     INT          NULL,
+    CONSTRAINT [FK_tblStaff_ToTable] FOREIGN KEY ([UserId]) REFERENCES [dbo].[tblUser] ([Id])
+)
+GO
+
+
+
+CREATE TABLE [dbo].[tblStudent] (
+    [Id]      INT          IDENTITY (1, 1) NOT NULL PRIMARY KEY,
+    [FirstName]   VARCHAR (50) NULL,
+	[LastName]   VARCHAR (50) NULL,
+    [Address] VARCHAR (50) NULL,
+    [DOB]     DATE         NULL,
+    [Email]   VARCHAR (50) NULL UNIQUE,
+    [RollNo]  VARCHAR (50) NULL UNIQUE,
+    [CourseId]     INT          NULL,
+    [UserId]     INT          NULL,
+    CONSTRAINT [FK_tblStudent_ToTable] FOREIGN KEY ([CourseId]) REFERENCES [dbo].[tblCourse] ([Id]),
+    CONSTRAINT [FK_tblStudent_ToTable_1] FOREIGN KEY ([UserId]) REFERENCES [dbo].[tblUser] ([Id])
+)
+GO
+
+
+
+CREATE TABLE [dbo].[tblTeacher]
+(
+	[Id] INT NOT NULL IDENTITY (1, 1) PRIMARY KEY, 
+    [StaffId] INT NULL, 
+    CONSTRAINT [FK_tblTeacher_ToTable] FOREIGN KEY ([StaffId]) REFERENCES [tblStaff]([Id])
+)
+GO
+
+
+
+CREATE TABLE [dbo].[tblSubjectTeacher]
+(
+	[Id] INT NOT NULL IDENTITY (1, 1) PRIMARY KEY, 
+    [SubjectId] INT NULL, 
+    [TeacherId] INT NULL, 
+    CONSTRAINT [FK_tblSubjectTeacher_ToTable] FOREIGN KEY ([SubjectId]) REFERENCES [tblSubject]([Id]), 
+    CONSTRAINT [FK_tblSubjectTeacher_ToTable_1] FOREIGN KEY ([TeacherId]) REFERENCES [tblTeacher]([Id])
+)
+GO
+
+
+CREATE TABLE [dbo].[tblAssessmentType] (
+    [Id]      INT          IDENTITY (1, 1) NOT NULL PRIMARY KEY,
+    [AssessmentType] VARCHAR (50) NULL,
+    [Mark]    INT          NULL,
+)
+GO
+
+
+
+
+CREATE TABLE [dbo].[tblFeedbackType] (
+    [Id]          INT          IDENTITY (1, 1) NOT NULL PRIMARY KEY,
+    [fType]       VARCHAR (10) NULL,
+    [Description] VARCHAR (50) NULL,
+)
+GO
+
+
+CREATE TABLE [dbo].[tblGrade] (
+    [Id]        INT          IDENTITY (1, 1) NOT NULL PRIMARY KEY,
+    [GradeSign] VARCHAR (10) NULL,
+    [MaxMark]   INT          NULL,
+    [MinMark]   INT          NULL
+)
+GO
+
+
+CREATE TABLE [dbo].[tblAssessment] (
+    [Id]      INT  IDENTITY (1, 1) NOT NULL PRIMARY KEY,
+    [CourseId]     INT  NULL,
+    [Mark]    INT  NULL,
+    [UserId]     INT  NULL,
+    [GradeId]     INT  NULL,
+    [AssessmentTypeId]   INT  NULL,
+    [AssessmentDate] DATE NULL,
+    CONSTRAINT [FK_tblAssessment_ToTable] FOREIGN KEY ([CourseId]) REFERENCES [dbo].[tblCourse] ([Id]),
+    CONSTRAINT [FK_tblAssessment_ToTable_1] FOREIGN KEY ([UserId]) REFERENCES [dbo].[tblUser] ([Id]),
+	CONSTRAINT [FK_tblAssessment_ToTable_2] FOREIGN KEY ([GradeId]) REFERENCES [dbo].[tblGrade] ([Id]),
+	CONSTRAINT [FK_tblAssessment_ToTable_3] FOREIGN KEY ([AssessmentTypeId]) REFERENCES [dbo].[tblAssessmentType] ([Id])
+)
+GO
+
+
+
+
+CREATE TABLE [dbo].[tblFeedback] (
+    [Id]          INT          IDENTITY (1, 1) NOT NULL PRIMARY KEY,
+    [Keywords]    VARCHAR (50) NULL,
+    [Description] VARCHAR (50) NULL,
+    [FeedbackTypeId]    INT          NULL,
+    [AssessmentId]       INT          NULL,
+    CONSTRAINT [FK_tblFeedback_ToTable] FOREIGN KEY ([FeedbackTypeId]) REFERENCES [dbo].[tblFeedbackType] ([Id]),
+	CONSTRAINT [FK_tblFeedback_ToTable_1] FOREIGN KEY ([AssessmentId]) REFERENCES [dbo].[tblAssessment] ([Id])
+)
+GO
+
+
+
+CREATE TABLE [dbo].[tblWordCloud] (
+    [Id]          INT           IDENTITY (1, 1) NOT NULL PRIMARY KEY,
+    [Words]       VARCHAR (100) NULL,
+    [Description] VARCHAR (50)  NULL,
+    [FeedbackId]        INT           NULL,
+    CONSTRAINT [FK_tblWordCloud_ToTable] FOREIGN KEY ([FeedbackId]) REFERENCES [dbo].[tblFeedback] ([Id])
+)
+GO
+
+
+
+CREATE TABLE [dbo].[tblNote] (
+    [Id]    INT          IDENTITY (1, 1) NOT NULL PRIMARY KEY,
+	[Notes] VARCHAR (50) NULL,
+    [FeedbackId]  INT          NULL,
+    [UserId]   INT          NULL,
+    CONSTRAINT [FK_tblNote_ToTable] FOREIGN KEY ([FeedbackId]) REFERENCES [dbo].[tblFeedback] ([Id]),
+    CONSTRAINT [FK_tblNote_ToTable_1] FOREIGN KEY ([UserId]) REFERENCES [dbo].[tblUser] ([Id])
+)
+GO

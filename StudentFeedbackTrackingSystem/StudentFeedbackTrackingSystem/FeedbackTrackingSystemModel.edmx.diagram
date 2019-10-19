@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4a9463b4e5e046a5b203b700791cec4e" Name="Diagram1">
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblAssessment" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblAssessmentType" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblCourse" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblFeedback" Width="1.5" PointX="10.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblFeedbackType" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblGrade" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblNote" Width="1.5" PointX="12.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblStaff" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblStudent" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblSubject" Width="1.5" PointX="7.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblSubjectTeacher" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblTeacher" Width="1.5" PointX="7.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblUser" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblUserType" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentFeedbackStorageModel.tblWordCloud" Width="1.5" PointX="12.75" PointY="9.625" IsExpanded="true" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblAssessment_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblAssessment_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblAssessment_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblAssessment_ToTable_3" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblFeedback_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_Table_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblStudent_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblFeedback_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblNote_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblWordCloud_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblNote_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblStaff_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblTeacher_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblStudent_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblSubjectTeacher_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblSubjectTeacher_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentFeedbackStorageModel.FK_tblUser_ToTable" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

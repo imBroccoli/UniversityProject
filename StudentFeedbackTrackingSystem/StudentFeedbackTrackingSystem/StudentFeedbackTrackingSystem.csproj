@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{90EF5747-09A0-49EE-9032-1DD14297DBB4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StudentFeedbackTrackingSystem</RootNamespace>
+    <AssemblyName>StudentFeedbackTrackingSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FeedbackTrackingSystemModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeedbackTrackingSystemModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeedbackTrackingSystemModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeedbackTrackingSystemModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeedbackTrackingSystemModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAssessment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAssessment.Designer.cs">
+      <DependentUpon>frmAssessment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAllAssessment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAllAssessment.Designer.cs">
+      <DependentUpon>frmAllAssessment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAssessmentTypeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAssessmentTypeInfo.Designer.cs">
+      <DependentUpon>frmAssessmentTypeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAllAssessmentType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAllAssessmentType.Designer.cs">
+      <DependentUpon>frmAllAssessmentType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmControlPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmControlPanel.Designer.cs">
+      <DependentUpon>frmControlPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCourse.Designer.cs">
+      <DependentUpon>frmCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAllCourses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAllCourses.Designer.cs">
+      <DependentUpon>frmAllCourses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFeedback.Designer.cs">
+      <DependentUpon>frmFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFeedbackType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFeedbackType.Designer.cs">
+      <DependentUpon>frmFeedbackType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGrade.Designer.cs">
+      <DependentUpon>frmGrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifyUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifyUserInfo.Designer.cs">
+      <DependentUpon>frmModifyUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifyUserTypeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifyUserTypeInfo.Designer.cs">
+      <DependentUpon>frmModifyUserTypeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotes.Designer.cs">
+      <DependentUpon>frmNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAllStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAllStaff.Designer.cs">
+      <DependentUpon>frmAllStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStaffRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStaffRegistration.Designer.cs">
+      <DependentUpon>frmStaffRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAllStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAllStudent.Designer.cs">
+      <DependentUpon>frmAllStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStudentRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStudentRegistration.Designer.cs">
+      <DependentUpon>frmStudentRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAllSubAssess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAllSubAssess.Designer.cs">
+      <DependentUpon>frmAllSubAssess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSubject.Designer.cs">
+      <DependentUpon>frmSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSubjectAssessment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSubjectAssessment.Designer.cs">
+      <DependentUpon>frmSubjectAssessment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAllSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAllSubject.Designer.cs">
+      <DependentUpon>frmAllSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSystemLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSystemLogin.Designer.cs">
+      <DependentUpon>frmSystemLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAllUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAllUsers.Designer.cs">
+      <DependentUpon>frmAllUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAllUserType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAllUserType.Designer.cs">
+      <DependentUpon>frmAllUserType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWordCloud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWordCloud.Designer.cs">
+      <DependentUpon>frmWordCloud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tblAssessment.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAssessmentType.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCourse.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFeedback.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFeedbackType.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblGrade.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblNote.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblStaff.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblStudent.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSubject.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSubjectTeacher.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTeacher.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUser.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUserType.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblWordCloud.cs">
+      <DependentUpon>FeedbackTrackingSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tools.cs" />
+    <EmbeddedResource Include="frmControlPanel.resx">
+      <DependentUpon>frmControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EntityDeploy Include="FeedbackTrackingSystemModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FeedbackTrackingSystemModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="FeedbackTrackingSystemModel.edmx.diagram">
+      <DependentUpon>FeedbackTrackingSystemModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BackupSQL.txt" />
+    <Content Include="FeedbackTrackingSystemModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FeedbackTrackingSystemModel.edmx</DependentUpon>
+      <LastGenOutput>FeedbackTrackingSystemModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="FeedbackTrackingSystemModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FeedbackTrackingSystemModel.edmx</DependentUpon>
+      <LastGenOutput>FeedbackTrackingSystemModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="StudentFeedbackStorage.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="StudentFeedbackStorage_log.ldf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>StudentFeedbackStorage.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

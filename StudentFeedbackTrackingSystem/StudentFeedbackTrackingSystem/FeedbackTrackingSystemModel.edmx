@@ -1,0 +1,1083 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StudentFeedbackStorageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAssessment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseId" Type="int" />
+          <Property Name="Mark" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="GradeId" Type="int" />
+          <Property Name="AssessmentTypeId" Type="int" />
+          <Property Name="AssessmentDate" Type="date" />
+        </EntityType>
+        <EntityType Name="tblAssessmentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AssessmentType" Type="varchar" MaxLength="50" />
+          <Property Name="Mark" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCourse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblFeedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Keywords" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="FeedbackTypeId" Type="int" />
+          <Property Name="AssessmentId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblFeedbackType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fType" Type="varchar" MaxLength="10" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblGrade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GradeSign" Type="varchar" MaxLength="10" />
+          <Property Name="MaxMark" Type="int" />
+          <Property Name="MinMark" Type="int" />
+        </EntityType>
+        <EntityType Name="tblNote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="50" />
+          <Property Name="FeedbackId" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblStaff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Salary" Type="money" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblStudent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="RollNo" Type="varchar" MaxLength="50" />
+          <Property Name="CourseId" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblSubject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubjectName" Type="varchar" MaxLength="50" />
+          <Property Name="cId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblSubjectTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubjectId" Type="int" />
+          <Property Name="TeacherId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="UserPass" Type="varchar" MaxLength="50" />
+          <Property Name="UTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserTypeName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblWordCloud">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Words" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="FeedbackId" Type="int" />
+        </EntityType>
+        <Association Name="FK_Table_ToTable">
+          <End Role="tblCourse" Type="Self.tblCourse" Multiplicity="0..1" />
+          <End Role="tblSubject" Type="Self.tblSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCourse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblSubject">
+              <PropertyRef Name="cId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAssessment_ToTable">
+          <End Role="tblCourse" Type="Self.tblCourse" Multiplicity="0..1" />
+          <End Role="tblAssessment" Type="Self.tblAssessment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCourse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblAssessment">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAssessment_ToTable_1">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblAssessment" Type="Self.tblAssessment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblAssessment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAssessment_ToTable_2">
+          <End Role="tblGrade" Type="Self.tblGrade" Multiplicity="0..1" />
+          <End Role="tblAssessment" Type="Self.tblAssessment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGrade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblAssessment">
+              <PropertyRef Name="GradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAssessment_ToTable_3">
+          <End Role="tblAssessmentType" Type="Self.tblAssessmentType" Multiplicity="0..1" />
+          <End Role="tblAssessment" Type="Self.tblAssessment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAssessmentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblAssessment">
+              <PropertyRef Name="AssessmentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeedback_ToTable">
+          <End Role="tblFeedbackType" Type="Self.tblFeedbackType" Multiplicity="0..1" />
+          <End Role="tblFeedback" Type="Self.tblFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFeedbackType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFeedback">
+              <PropertyRef Name="FeedbackTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeedback_ToTable_1">
+          <End Role="tblAssessment" Type="Self.tblAssessment" Multiplicity="0..1" />
+          <End Role="tblFeedback" Type="Self.tblFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAssessment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFeedback">
+              <PropertyRef Name="AssessmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblNote_ToTable">
+          <End Role="tblFeedback" Type="Self.tblFeedback" Multiplicity="0..1" />
+          <End Role="tblNote" Type="Self.tblNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFeedback">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblNote">
+              <PropertyRef Name="FeedbackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblNote_ToTable_1">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblNote" Type="Self.tblNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblNote">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStaff_ToTable">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStaff">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStudent_ToTable">
+          <End Role="tblCourse" Type="Self.tblCourse" Multiplicity="0..1" />
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCourse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStudent">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStudent_ToTable_1">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStudent">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubjectTeacher_ToTable">
+          <End Role="tblSubject" Type="Self.tblSubject" Multiplicity="0..1" />
+          <End Role="tblSubjectTeacher" Type="Self.tblSubjectTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSubject">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblSubjectTeacher">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubjectTeacher_ToTable_1">
+          <End Role="tblTeacher" Type="Self.tblTeacher" Multiplicity="0..1" />
+          <End Role="tblSubjectTeacher" Type="Self.tblSubjectTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTeacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblSubjectTeacher">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTeacher_ToTable">
+          <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="0..1" />
+          <End Role="tblTeacher" Type="Self.tblTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStaff">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblTeacher">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUser_ToTable">
+          <End Role="tblUserType" Type="Self.tblUserType" Multiplicity="0..1" />
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="UTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblWordCloud_ToTable">
+          <End Role="tblFeedback" Type="Self.tblFeedback" Multiplicity="0..1" />
+          <End Role="tblWordCloud" Type="Self.tblWordCloud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFeedback">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblWordCloud">
+              <PropertyRef Name="FeedbackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentFeedbackStorageModelStoreContainer">
+          <EntitySet Name="tblAssessment" EntityType="Self.tblAssessment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAssessmentType" EntityType="Self.tblAssessmentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCourse" EntityType="Self.tblCourse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFeedback" EntityType="Self.tblFeedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFeedbackType" EntityType="Self.tblFeedbackType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGrade" EntityType="Self.tblGrade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblNote" EntityType="Self.tblNote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStaff" EntityType="Self.tblStaff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStudent" EntityType="Self.tblStudent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSubject" EntityType="Self.tblSubject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSubjectTeacher" EntityType="Self.tblSubjectTeacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTeacher" EntityType="Self.tblTeacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserType" EntityType="Self.tblUserType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblWordCloud" EntityType="Self.tblWordCloud" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
+            <End Role="tblCourse" EntitySet="tblCourse" />
+            <End Role="tblSubject" EntitySet="tblSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAssessment_ToTable" Association="Self.FK_tblAssessment_ToTable">
+            <End Role="tblCourse" EntitySet="tblCourse" />
+            <End Role="tblAssessment" EntitySet="tblAssessment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAssessment_ToTable_1" Association="Self.FK_tblAssessment_ToTable_1">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblAssessment" EntitySet="tblAssessment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAssessment_ToTable_2" Association="Self.FK_tblAssessment_ToTable_2">
+            <End Role="tblGrade" EntitySet="tblGrade" />
+            <End Role="tblAssessment" EntitySet="tblAssessment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAssessment_ToTable_3" Association="Self.FK_tblAssessment_ToTable_3">
+            <End Role="tblAssessmentType" EntitySet="tblAssessmentType" />
+            <End Role="tblAssessment" EntitySet="tblAssessment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeedback_ToTable" Association="Self.FK_tblFeedback_ToTable">
+            <End Role="tblFeedbackType" EntitySet="tblFeedbackType" />
+            <End Role="tblFeedback" EntitySet="tblFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeedback_ToTable_1" Association="Self.FK_tblFeedback_ToTable_1">
+            <End Role="tblAssessment" EntitySet="tblAssessment" />
+            <End Role="tblFeedback" EntitySet="tblFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblNote_ToTable" Association="Self.FK_tblNote_ToTable">
+            <End Role="tblFeedback" EntitySet="tblFeedback" />
+            <End Role="tblNote" EntitySet="tblNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblNote_ToTable_1" Association="Self.FK_tblNote_ToTable_1">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblNote" EntitySet="tblNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStaff_ToTable" Association="Self.FK_tblStaff_ToTable">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblStaff" EntitySet="tblStaff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStudent_ToTable" Association="Self.FK_tblStudent_ToTable">
+            <End Role="tblCourse" EntitySet="tblCourse" />
+            <End Role="tblStudent" EntitySet="tblStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStudent_ToTable_1" Association="Self.FK_tblStudent_ToTable_1">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblStudent" EntitySet="tblStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubjectTeacher_ToTable" Association="Self.FK_tblSubjectTeacher_ToTable">
+            <End Role="tblSubject" EntitySet="tblSubject" />
+            <End Role="tblSubjectTeacher" EntitySet="tblSubjectTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubjectTeacher_ToTable_1" Association="Self.FK_tblSubjectTeacher_ToTable_1">
+            <End Role="tblTeacher" EntitySet="tblTeacher" />
+            <End Role="tblSubjectTeacher" EntitySet="tblSubjectTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTeacher_ToTable" Association="Self.FK_tblTeacher_ToTable">
+            <End Role="tblStaff" EntitySet="tblStaff" />
+            <End Role="tblTeacher" EntitySet="tblTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUser_ToTable" Association="Self.FK_tblUser_ToTable">
+            <End Role="tblUserType" EntitySet="tblUserType" />
+            <End Role="tblUser" EntitySet="tblUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblWordCloud_ToTable" Association="Self.FK_tblWordCloud_ToTable">
+            <End Role="tblFeedback" EntitySet="tblFeedback" />
+            <End Role="tblWordCloud" EntitySet="tblWordCloud" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StudentFeedbackStorageModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAssessment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseId" Type="Int32" />
+          <Property Name="Mark" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="GradeId" Type="Int32" />
+          <Property Name="AssessmentTypeId" Type="Int32" />
+          <Property Name="AssessmentDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tblCourse" Relationship="Self.FK_tblAssessment_ToTable" FromRole="tblAssessment" ToRole="tblCourse" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblAssessment_ToTable_1" FromRole="tblAssessment" ToRole="tblUser" />
+          <NavigationProperty Name="tblGrade" Relationship="Self.FK_tblAssessment_ToTable_2" FromRole="tblAssessment" ToRole="tblGrade" />
+          <NavigationProperty Name="tblAssessmentType" Relationship="Self.FK_tblAssessment_ToTable_3" FromRole="tblAssessment" ToRole="tblAssessmentType" />
+          <NavigationProperty Name="tblFeedbacks" Relationship="Self.FK_tblFeedback_ToTable_1" FromRole="tblAssessment" ToRole="tblFeedback" />
+        </EntityType>
+        <EntityType Name="tblAssessmentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssessmentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mark" Type="Int32" />
+          <NavigationProperty Name="tblAssessments" Relationship="Self.FK_tblAssessment_ToTable_3" FromRole="tblAssessmentType" ToRole="tblAssessment" />
+        </EntityType>
+        <EntityType Name="tblCourse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblAssessments" Relationship="Self.FK_tblAssessment_ToTable" FromRole="tblCourse" ToRole="tblAssessment" />
+          <NavigationProperty Name="tblSubjects" Relationship="Self.FK_Table_ToTable" FromRole="tblCourse" ToRole="tblSubject" />
+          <NavigationProperty Name="tblStudents" Relationship="Self.FK_tblStudent_ToTable" FromRole="tblCourse" ToRole="tblStudent" />
+        </EntityType>
+        <EntityType Name="tblFeedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Keywords" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FeedbackTypeId" Type="Int32" />
+          <Property Name="AssessmentId" Type="Int32" />
+          <NavigationProperty Name="tblAssessment" Relationship="Self.FK_tblFeedback_ToTable_1" FromRole="tblFeedback" ToRole="tblAssessment" />
+          <NavigationProperty Name="tblFeedbackType" Relationship="Self.FK_tblFeedback_ToTable" FromRole="tblFeedback" ToRole="tblFeedbackType" />
+          <NavigationProperty Name="tblNotes" Relationship="Self.FK_tblNote_ToTable" FromRole="tblFeedback" ToRole="tblNote" />
+          <NavigationProperty Name="tblWordClouds" Relationship="Self.FK_tblWordCloud_ToTable" FromRole="tblFeedback" ToRole="tblWordCloud" />
+        </EntityType>
+        <EntityType Name="tblFeedbackType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblFeedbacks" Relationship="Self.FK_tblFeedback_ToTable" FromRole="tblFeedbackType" ToRole="tblFeedback" />
+        </EntityType>
+        <EntityType Name="tblGrade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GradeSign" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaxMark" Type="Int32" />
+          <Property Name="MinMark" Type="Int32" />
+          <NavigationProperty Name="tblAssessments" Relationship="Self.FK_tblAssessment_ToTable_2" FromRole="tblGrade" ToRole="tblAssessment" />
+        </EntityType>
+        <EntityType Name="tblNote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FeedbackId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="tblFeedback" Relationship="Self.FK_tblNote_ToTable" FromRole="tblNote" ToRole="tblFeedback" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblNote_ToTable_1" FromRole="tblNote" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblStaff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblStaff_ToTable" FromRole="tblStaff" ToRole="tblUser" />
+          <NavigationProperty Name="tblTeachers" Relationship="Self.FK_tblTeacher_ToTable" FromRole="tblStaff" ToRole="tblTeacher" />
+        </EntityType>
+        <EntityType Name="tblStudent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RollNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CourseId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="tblCourse" Relationship="Self.FK_tblStudent_ToTable" FromRole="tblStudent" ToRole="tblCourse" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblStudent_ToTable_1" FromRole="tblStudent" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblSubject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cId" Type="Int32" />
+          <NavigationProperty Name="tblCourse" Relationship="Self.FK_Table_ToTable" FromRole="tblSubject" ToRole="tblCourse" />
+          <NavigationProperty Name="tblSubjectTeachers" Relationship="Self.FK_tblSubjectTeacher_ToTable" FromRole="tblSubject" ToRole="tblSubjectTeacher" />
+        </EntityType>
+        <EntityType Name="tblSubjectTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectId" Type="Int32" />
+          <Property Name="TeacherId" Type="Int32" />
+          <NavigationProperty Name="tblSubject" Relationship="Self.FK_tblSubjectTeacher_ToTable" FromRole="tblSubjectTeacher" ToRole="tblSubject" />
+          <NavigationProperty Name="tblTeacher" Relationship="Self.FK_tblSubjectTeacher_ToTable_1" FromRole="tblSubjectTeacher" ToRole="tblTeacher" />
+        </EntityType>
+        <EntityType Name="tblTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffId" Type="Int32" />
+          <NavigationProperty Name="tblStaff" Relationship="Self.FK_tblTeacher_ToTable" FromRole="tblTeacher" ToRole="tblStaff" />
+          <NavigationProperty Name="tblSubjectTeachers" Relationship="Self.FK_tblSubjectTeacher_ToTable_1" FromRole="tblTeacher" ToRole="tblSubjectTeacher" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserPass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UTypeId" Type="Int32" />
+          <NavigationProperty Name="tblAssessments" Relationship="Self.FK_tblAssessment_ToTable_1" FromRole="tblUser" ToRole="tblAssessment" />
+          <NavigationProperty Name="tblNotes" Relationship="Self.FK_tblNote_ToTable_1" FromRole="tblUser" ToRole="tblNote" />
+          <NavigationProperty Name="tblStaffs" Relationship="Self.FK_tblStaff_ToTable" FromRole="tblUser" ToRole="tblStaff" />
+          <NavigationProperty Name="tblStudents" Relationship="Self.FK_tblStudent_ToTable_1" FromRole="tblUser" ToRole="tblStudent" />
+          <NavigationProperty Name="tblUserType" Relationship="Self.FK_tblUser_ToTable" FromRole="tblUser" ToRole="tblUserType" />
+        </EntityType>
+        <EntityType Name="tblUserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblUsers" Relationship="Self.FK_tblUser_ToTable" FromRole="tblUserType" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblWordCloud">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Words" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FeedbackId" Type="Int32" />
+          <NavigationProperty Name="tblFeedback" Relationship="Self.FK_tblWordCloud_ToTable" FromRole="tblWordCloud" ToRole="tblFeedback" />
+        </EntityType>
+        <Association Name="FK_tblAssessment_ToTable">
+          <End Role="tblCourse" Type="Self.tblCourse" Multiplicity="0..1" />
+          <End Role="tblAssessment" Type="Self.tblAssessment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCourse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblAssessment">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAssessment_ToTable_1">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblAssessment" Type="Self.tblAssessment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblAssessment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAssessment_ToTable_2">
+          <End Role="tblGrade" Type="Self.tblGrade" Multiplicity="0..1" />
+          <End Role="tblAssessment" Type="Self.tblAssessment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGrade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblAssessment">
+              <PropertyRef Name="GradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAssessment_ToTable_3">
+          <End Role="tblAssessmentType" Type="Self.tblAssessmentType" Multiplicity="0..1" />
+          <End Role="tblAssessment" Type="Self.tblAssessment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAssessmentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblAssessment">
+              <PropertyRef Name="AssessmentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeedback_ToTable_1">
+          <End Role="tblAssessment" Type="Self.tblAssessment" Multiplicity="0..1" />
+          <End Role="tblFeedback" Type="Self.tblFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAssessment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFeedback">
+              <PropertyRef Name="AssessmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToTable">
+          <End Role="tblCourse" Type="Self.tblCourse" Multiplicity="0..1" />
+          <End Role="tblSubject" Type="Self.tblSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCourse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblSubject">
+              <PropertyRef Name="cId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStudent_ToTable">
+          <End Role="tblCourse" Type="Self.tblCourse" Multiplicity="0..1" />
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCourse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStudent">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeedback_ToTable">
+          <End Role="tblFeedbackType" Type="Self.tblFeedbackType" Multiplicity="0..1" />
+          <End Role="tblFeedback" Type="Self.tblFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFeedbackType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFeedback">
+              <PropertyRef Name="FeedbackTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblNote_ToTable">
+          <End Role="tblFeedback" Type="Self.tblFeedback" Multiplicity="0..1" />
+          <End Role="tblNote" Type="Self.tblNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFeedback">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblNote">
+              <PropertyRef Name="FeedbackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblWordCloud_ToTable">
+          <End Role="tblFeedback" Type="Self.tblFeedback" Multiplicity="0..1" />
+          <End Role="tblWordCloud" Type="Self.tblWordCloud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFeedback">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblWordCloud">
+              <PropertyRef Name="FeedbackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblNote_ToTable_1">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblNote" Type="Self.tblNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblNote">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStaff_ToTable">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStaff">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTeacher_ToTable">
+          <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="0..1" />
+          <End Role="tblTeacher" Type="Self.tblTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStaff">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblTeacher">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStudent_ToTable_1">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStudent">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubjectTeacher_ToTable">
+          <End Role="tblSubject" Type="Self.tblSubject" Multiplicity="0..1" />
+          <End Role="tblSubjectTeacher" Type="Self.tblSubjectTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSubject">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblSubjectTeacher">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubjectTeacher_ToTable_1">
+          <End Role="tblTeacher" Type="Self.tblTeacher" Multiplicity="0..1" />
+          <End Role="tblSubjectTeacher" Type="Self.tblSubjectTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTeacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblSubjectTeacher">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUser_ToTable">
+          <End Role="tblUserType" Type="Self.tblUserType" Multiplicity="0..1" />
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="UTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentFeedbackStorageEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAssessments" EntityType="Self.tblAssessment" />
+          <EntitySet Name="tblAssessmentTypes" EntityType="Self.tblAssessmentType" />
+          <EntitySet Name="tblCourses" EntityType="Self.tblCourse" />
+          <EntitySet Name="tblFeedbacks" EntityType="Self.tblFeedback" />
+          <EntitySet Name="tblFeedbackTypes" EntityType="Self.tblFeedbackType" />
+          <EntitySet Name="tblGrades" EntityType="Self.tblGrade" />
+          <EntitySet Name="tblNotes" EntityType="Self.tblNote" />
+          <EntitySet Name="tblStaffs" EntityType="Self.tblStaff" />
+          <EntitySet Name="tblStudents" EntityType="Self.tblStudent" />
+          <EntitySet Name="tblSubjects" EntityType="Self.tblSubject" />
+          <EntitySet Name="tblSubjectTeachers" EntityType="Self.tblSubjectTeacher" />
+          <EntitySet Name="tblTeachers" EntityType="Self.tblTeacher" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+          <EntitySet Name="tblUserTypes" EntityType="Self.tblUserType" />
+          <EntitySet Name="tblWordClouds" EntityType="Self.tblWordCloud" />
+          <AssociationSet Name="FK_tblAssessment_ToTable" Association="Self.FK_tblAssessment_ToTable">
+            <End Role="tblCourse" EntitySet="tblCourses" />
+            <End Role="tblAssessment" EntitySet="tblAssessments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAssessment_ToTable_1" Association="Self.FK_tblAssessment_ToTable_1">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblAssessment" EntitySet="tblAssessments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAssessment_ToTable_2" Association="Self.FK_tblAssessment_ToTable_2">
+            <End Role="tblGrade" EntitySet="tblGrades" />
+            <End Role="tblAssessment" EntitySet="tblAssessments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAssessment_ToTable_3" Association="Self.FK_tblAssessment_ToTable_3">
+            <End Role="tblAssessmentType" EntitySet="tblAssessmentTypes" />
+            <End Role="tblAssessment" EntitySet="tblAssessments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeedback_ToTable_1" Association="Self.FK_tblFeedback_ToTable_1">
+            <End Role="tblAssessment" EntitySet="tblAssessments" />
+            <End Role="tblFeedback" EntitySet="tblFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
+            <End Role="tblCourse" EntitySet="tblCourses" />
+            <End Role="tblSubject" EntitySet="tblSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStudent_ToTable" Association="Self.FK_tblStudent_ToTable">
+            <End Role="tblCourse" EntitySet="tblCourses" />
+            <End Role="tblStudent" EntitySet="tblStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeedback_ToTable" Association="Self.FK_tblFeedback_ToTable">
+            <End Role="tblFeedbackType" EntitySet="tblFeedbackTypes" />
+            <End Role="tblFeedback" EntitySet="tblFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblNote_ToTable" Association="Self.FK_tblNote_ToTable">
+            <End Role="tblFeedback" EntitySet="tblFeedbacks" />
+            <End Role="tblNote" EntitySet="tblNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblWordCloud_ToTable" Association="Self.FK_tblWordCloud_ToTable">
+            <End Role="tblFeedback" EntitySet="tblFeedbacks" />
+            <End Role="tblWordCloud" EntitySet="tblWordClouds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblNote_ToTable_1" Association="Self.FK_tblNote_ToTable_1">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblNote" EntitySet="tblNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStaff_ToTable" Association="Self.FK_tblStaff_ToTable">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblStaff" EntitySet="tblStaffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTeacher_ToTable" Association="Self.FK_tblTeacher_ToTable">
+            <End Role="tblStaff" EntitySet="tblStaffs" />
+            <End Role="tblTeacher" EntitySet="tblTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStudent_ToTable_1" Association="Self.FK_tblStudent_ToTable_1">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblStudent" EntitySet="tblStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubjectTeacher_ToTable" Association="Self.FK_tblSubjectTeacher_ToTable">
+            <End Role="tblSubject" EntitySet="tblSubjects" />
+            <End Role="tblSubjectTeacher" EntitySet="tblSubjectTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubjectTeacher_ToTable_1" Association="Self.FK_tblSubjectTeacher_ToTable_1">
+            <End Role="tblTeacher" EntitySet="tblTeachers" />
+            <End Role="tblSubjectTeacher" EntitySet="tblSubjectTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUser_ToTable" Association="Self.FK_tblUser_ToTable">
+            <End Role="tblUserType" EntitySet="tblUserTypes" />
+            <End Role="tblUser" EntitySet="tblUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StudentFeedbackStorageModelStoreContainer" CdmEntityContainer="StudentFeedbackStorageEntities">
+          <EntitySetMapping Name="tblAssessments">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblAssessment">
+              <MappingFragment StoreEntitySet="tblAssessment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="Mark" ColumnName="Mark" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="GradeId" ColumnName="GradeId" />
+                <ScalarProperty Name="AssessmentTypeId" ColumnName="AssessmentTypeId" />
+                <ScalarProperty Name="AssessmentDate" ColumnName="AssessmentDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAssessmentTypes">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblAssessmentType">
+              <MappingFragment StoreEntitySet="tblAssessmentType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AssessmentType" ColumnName="AssessmentType" />
+                <ScalarProperty Name="Mark" ColumnName="Mark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCourses">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblCourse">
+              <MappingFragment StoreEntitySet="tblCourse">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFeedbacks">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblFeedback">
+              <MappingFragment StoreEntitySet="tblFeedback">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FeedbackTypeId" ColumnName="FeedbackTypeId" />
+                <ScalarProperty Name="AssessmentId" ColumnName="AssessmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFeedbackTypes">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblFeedbackType">
+              <MappingFragment StoreEntitySet="tblFeedbackType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="fType" ColumnName="fType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGrades">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblGrade">
+              <MappingFragment StoreEntitySet="tblGrade">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GradeSign" ColumnName="GradeSign" />
+                <ScalarProperty Name="MaxMark" ColumnName="MaxMark" />
+                <ScalarProperty Name="MinMark" ColumnName="MinMark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblNotes">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblNote">
+              <MappingFragment StoreEntitySet="tblNote">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStaffs">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblStaff">
+              <MappingFragment StoreEntitySet="tblStaff">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStudents">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblStudent">
+              <MappingFragment StoreEntitySet="tblStudent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSubjects">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblSubject">
+              <MappingFragment StoreEntitySet="tblSubject">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="cId" ColumnName="cId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSubjectTeachers">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblSubjectTeacher">
+              <MappingFragment StoreEntitySet="tblSubjectTeacher">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTeachers">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblTeacher">
+              <MappingFragment StoreEntitySet="tblTeacher">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPass" ColumnName="UserPass" />
+                <ScalarProperty Name="UTypeId" ColumnName="UTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserTypes">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblUserType">
+              <MappingFragment StoreEntitySet="tblUserType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblWordClouds">
+            <EntityTypeMapping TypeName="StudentFeedbackStorageModel.tblWordCloud">
+              <MappingFragment StoreEntitySet="tblWordCloud">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Words" ColumnName="Words" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
